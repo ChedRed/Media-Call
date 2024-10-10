@@ -1,8 +1,10 @@
 # Basic project requirements
 cmake_minimum_required(VERSION 3.30)
-if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
-set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE)
-set(CMAKE_OSX_SYSROOT macosx)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "MacOS")
+    set(CMAKE_OSX_SYSROOT macosx)
+endif()
 project(MediaCall)
 
 

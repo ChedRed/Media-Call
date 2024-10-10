@@ -2,7 +2,9 @@
 #include <X11/Xlib.h>
 
 
-int w, h;
+float scale = .2;
+
+
 bool loop = true;
 
 /* Program main */
@@ -16,10 +18,6 @@ int main() {
             switch (app.e.type) {
                 case SDL_EVENT_QUIT:
                     loop = false;
-                    break;
-
-                case SDL_EVENT_WINDOW_RESIZED:
-                    SDL_GetWindowSize(app.window, &w, &h);
                     break;
             }
         }
