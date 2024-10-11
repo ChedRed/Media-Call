@@ -1,18 +1,19 @@
 #include "main.h"
-#include <X11/Xlib.h>
 
 
 float Scale = .2;
-
-
+SDL_Rect DPBounds;
 bool Loop = true;
 
 /* Program main */
 int main() {
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_GetDisplayBounds(0, &DPBounds);
     SDL_Spine App;
 
 
-    App.Spine_Init("Media Call", { 720, 425 }, { 720, 425 }, SDL_INIT_VIDEO, SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_UTILITY);
+    App.Spine_Init("Media Call", { 720, 425 }, { 0, 0 }, SDL_WINDOW_UTILITY | SDL_WINDOW_NOT_FOCUSABLE);
+    SDL_SetWindowFocusable(App.Window, false);
     while (Loop) {
         while (SDL_PollEvent(&App.e) != 0) {
             switch (App.e.type) {

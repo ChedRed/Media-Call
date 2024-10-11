@@ -17,7 +17,7 @@ SDL_Window * Window;
 SDL_Renderer * Renderer;
 SDL_Event e;
 SDL_Spine();
-void Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_InitFlags initFlags, SDL_WindowFlags winFlags);
+void Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_WindowFlags winFlags);
 void Spine_Render(SDL_Color Color);
 void Spine_Quit();
 std::string osname = "undefined";
@@ -40,8 +40,7 @@ inline SDL_Spine::SDL_Spine() {
     #endif
 }
 
-inline void SDL_Spine::Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_InitFlags initFlags, SDL_WindowFlags winFlags) {
-    SDL_Init(initFlags);
+inline void SDL_Spine::Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_WindowFlags winFlags) {
     SDL_CreateWindowAndRenderer(Name, WinDimensions.x, WinDimensions.y, winFlags, &Window, &Renderer);
     SDL_SetWindowMinimumSize(Window, WinMinDimensions.x, WinMinDimensions.y);
     SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 0);
