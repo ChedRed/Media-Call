@@ -13,13 +13,13 @@ struct vec3 { int x; int y; int z; };
 class SDL_Spine {
 public:
 
-SDL_Window * window;
-SDL_Renderer * renderer;
+SDL_Window * Window;
+SDL_Renderer * Renderer;
 SDL_Event e;
 SDL_Spine();
-void SDL_PInit(const char * name, vec2 windimensions, vec2 winmindimensions, SDL_InitFlags initflags, SDL_WindowFlags winflags);
-void SDL_PRend(SDL_Color color);
-void SDL_PQuit();
+void Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_InitFlags initFlags, SDL_WindowFlags winFlags);
+void Spine_Render(SDL_Color Color);
+void Spine_Quit();
 std::string osname = "undefined";
 };
 
@@ -40,22 +40,22 @@ inline SDL_Spine::SDL_Spine() {
     #endif
 }
 
-inline void SDL_Spine::SDL_PInit(const char * name, vec2 windimensions, vec2 winmindimensions, SDL_InitFlags initflags, SDL_WindowFlags winflags) {
-    SDL_Init(initflags);
-    SDL_CreateWindowAndRenderer(name, windimensions.x, windimensions.y, winflags, &window, &renderer);
-    SDL_SetWindowMinimumSize(window, winmindimensions.x, winmindimensions.y);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer);
+inline void SDL_Spine::Spine_Init(const char * Name, vec2 WinDimensions, vec2 WinMinDimensions, SDL_InitFlags initFlags, SDL_WindowFlags winFlags) {
+    SDL_Init(initFlags);
+    SDL_CreateWindowAndRenderer(Name, WinDimensions.x, WinDimensions.y, winFlags, &Window, &Renderer);
+    SDL_SetWindowMinimumSize(Window, WinMinDimensions.x, WinMinDimensions.y);
+    SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 0);
+    SDL_RenderClear(Renderer);
 }
 
-inline void SDL_Spine::SDL_PRend(SDL_Color color) {
-    SDL_RenderPresent(renderer);
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-    SDL_RenderClear(renderer);
+inline void SDL_Spine::Spine_Render(SDL_Color Color) {
+    SDL_RenderPresent(Renderer);
+    SDL_SetRenderDrawColor(Renderer, Color.r, Color.g, Color.b, Color.a);
+    SDL_RenderClear(Renderer);
 }
 
-inline void SDL_Spine::SDL_PQuit() {
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+inline void SDL_Spine::Spine_Quit() {
+    SDL_DestroyRenderer(Renderer);
+    SDL_DestroyWindow(Window);
     SDL_Quit();
 }

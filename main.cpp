@@ -2,30 +2,30 @@
 #include <X11/Xlib.h>
 
 
-float scale = .2;
+float Scale = .2;
 
 
-bool loop = true;
+bool Loop = true;
 
 /* Program main */
 int main() {
-    SDL_Spine app;
+    SDL_Spine App;
 
 
-    app.SDL_PInit("Media Call", { 720, 425 }, { 720, 425 }, SDL_INIT_VIDEO, SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_UTILITY);
-    while (loop) {
-        while (SDL_PollEvent(&app.e) != 0) {
-            switch (app.e.type) {
+    App.Spine_Init("Media Call", { 720, 425 }, { 720, 425 }, SDL_INIT_VIDEO, SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_UTILITY);
+    while (Loop) {
+        while (SDL_PollEvent(&App.e) != 0) {
+            switch (App.e.type) {
                 case SDL_EVENT_QUIT:
-                    loop = false;
+                    Loop = false;
                     break;
             }
         }
 
-        app.SDL_PRend({ 32, 32, 32, 255 });
+        App.Spine_Render({ 32, 32, 32, 255 });
     }
 
-    app.SDL_PQuit();
+    App.Spine_Quit();
 
     return 0;
 }
