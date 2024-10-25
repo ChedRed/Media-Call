@@ -1,5 +1,0 @@
-CompileFlags:
-    Add:
-        - -I"C:\usr\local\include"
-        - -std=c++2c
-        - -ferror-limit=100

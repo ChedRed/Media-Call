@@ -1,4 +1,5 @@
 #include "main.h"
+#include "SDL3/SDL_video.h"
 
 
 float Scale = .2;
@@ -12,8 +13,7 @@ int main() {
     SDL_Spine App;
 
 
-    App.Spine_Init("Media Call", { 720, 425 }, { 0, 0 }, SDL_WINDOW_UTILITY | SDL_WINDOW_NOT_FOCUSABLE);
-    SDL_SetWindowFocusable(App.Window, false);
+    App.Spine_Init("Media Call", { 720, 425 }, { 0, 0 }, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_UTILITY | SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_BORDERLESS);
     while (Loop) {
         while (SDL_PollEvent(&App.e) != 0) {
             switch (App.e.type) {

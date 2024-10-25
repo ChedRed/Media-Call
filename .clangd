@@ -2,4 +2,5 @@ CompileFlags:
     Add:
         - -std=c++2c
         - -ferror-limit=100
+        - -IC:/usr/local/include
         - -I/usr/local/include
