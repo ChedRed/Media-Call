@@ -1,5 +1,4 @@
 #include "main.h"
-#include "SDL3/SDL_video.h"
 
 
 float Scale = .2;
