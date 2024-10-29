@@ -9,6 +9,8 @@ project(MediaCall)
 # Set CMake variables
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # Main executable
@@ -17,7 +19,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 else()
     add_executable(mediacall main.cpp)
 endif()
-target_compile_features(mediacall PRIVATE cxx_std_23)
 
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
@@ -56,7 +57,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     # Link libraries and include directories
     target_link_libraries(mediacall PRIVATE ${CMAKE_SOURCE_DIR}/../Cached/SDL3.dll)
     target_link_libraries(mediacall PRIVATE ${CMAKE_SOURCE_DIR}/../Cached/SDL3_ttf.dll)
-    target_include_directories(mediacall PRIVATE C:/usr/local/include)
+    target_include_directories(mediacall PRIVATE C:/usr/local/include "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt")
 
 
     # Add basic files to windows app

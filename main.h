@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <SDL3/SDL.h>
+#include "incontrol.h"
 
 
 
@@ -27,14 +25,11 @@ std::string osname = "undefined";
 inline SDL_Spine::SDL_Spine() {
     #ifdef _WIN32
         osname = "windows";
-        // #include <windows.h>
     #elif __APPLE__
         osname = "macosx";
         // SDL_SetPointerProperty(SDL_GetWindowProperties(window), "SDL.window.cocoa.window.ignoresMouseEvents", (void * )true);
     #elif __linux__
         osname = "linux";
-        // #include <X11/Xlib.h>
-        // #include <X11/Xatom.h>
     #elif __unix__
         osname = "Unix";
     #endif

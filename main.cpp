@@ -1,4 +1,6 @@
 #include "main.h"
+#include "SDL3/SDL_timer.h"
+#include "osmedia.h"
 
 
 float Scale = .2;
@@ -23,6 +25,7 @@ int main() {
         }
 
         App.Spine_Render({ 32, 32, 32, 255 });
+        SDL_Delay(1000);
     }
 
     App.Spine_Quit();
