@@ -57,7 +57,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     # Link libraries and include directories
     target_link_libraries(mediacall PRIVATE ${CMAKE_SOURCE_DIR}/../Cached/SDL3.dll)
     target_link_libraries(mediacall PRIVATE ${CMAKE_SOURCE_DIR}/../Cached/SDL3_ttf.dll)
-    target_include_directories(mediacall PRIVATE C:/usr/local/include "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt")
+    # target_include_directories(mediacall PRIVATE C:/usr/local/include "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt")
 
 
     # Add basic files to windows app
