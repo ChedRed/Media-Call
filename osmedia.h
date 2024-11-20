@@ -17,7 +17,7 @@ private:
 };
 
 inline OSMedia::OSMedia(){
-    winrt::init_apartment();
-    try {auto Session = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();}
-    catch (const winrt::hresult_error e) {std::cout << "Error: " << e.code() << std::endl;}
+    // winrt::init_apartment();
+    // try {auto Session = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();}
+    // catch (const winrt::hresult_error e) {std::cout << "Error: " << e.code() << std::endl;}
 }

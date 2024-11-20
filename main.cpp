@@ -1,6 +1,4 @@
 #include "main.h"
-#include "SDL3/SDL_timer.h"
-#include "SDL3/SDL_video.h"
 #include "osmedia.h"
 
 
@@ -9,7 +7,7 @@ SDL_Rect DPBounds;
 bool Loop = true;
 
 /* Program main */
-int main() {
+int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_GetDisplayBounds(0, &DPBounds);
     SDL_Spine App;
@@ -33,3 +31,11 @@ int main() {
 
     return 0;
 }
+
+
+#ifdef _WIN32
+/* Windows window subsystem :( */
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
+    return main(__argc, __argv);
+}
+#endif
